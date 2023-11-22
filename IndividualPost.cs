@@ -1,11 +1,10 @@
 /*
-Skapar intern klass som representerar information om enskilda inlägg. Varje 
-inlägg har egenskaper (Author och Content) av typen string för vilka värden 
-krävs vid initiering (init). Det är också möjligt att läsa ut (get) 
-egenskapernas värden.
+Skapar klass som representerar information om enskilda inlägg. Varje inlägg har 
+automatiska egenskaper (Author och Content) av typen string, för vilka värden 
+krävs vid tilldelning (set). Det är också möjligt att returnera värden (get).
 */
-internal class IndividualPost
+class IndividualPost
 {
-    public required string Author { get; init; }
-    public required string Content { get; init; }
+    public required string Author { get; set; }
+    public required string Content { get; set; }
 }

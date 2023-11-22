@@ -5,12 +5,12 @@ att hantera konvertering mellan JSON och objekt.
 using static System.Console;
 using System.Text.Json;
 
-// Skapar intern klass som hanterar gästboksinlägg.
-internal class ManagePosts
+// Skapar klass som hanterar gästboksinlägg.
+class ManagePosts
 {
     /* 
-    Privat fält som kan lagra en lista med inlägg samt en konstruktor 
-    som initierar en ny instans av listan.
+    Privat fält som kan lagra en lista med enskilda inlägg samt en 
+    konstruktor som initierar en ny instans av listan.
     */
     private List<IndividualPost> Posts;
 
@@ -68,6 +68,7 @@ internal class ManagePosts
         if (string.IsNullOrWhiteSpace(author))
         {
             Write("\nOgiltigt namn! Tryck på valfri tangent för att börja om...");
+            ReadKey();
             return;
         }
 
@@ -77,12 +78,12 @@ internal class ManagePosts
         if (string.IsNullOrWhiteSpace(content))
         {
             Write("\nOgiltigt inlägg! Tryck på valfri tangent för att börja om...");
+            ReadKey();
             return;
         }
 
         Posts.Add(new IndividualPost { Author = author, Content = content });
         SavePosts();
-        Write("\nTryck på valfri tangent för att uppdatera befintliga inlägg...");
     }
 
     /*
@@ -108,6 +109,7 @@ internal class ManagePosts
         if (Posts.Count == 0)
         {
             Write("\nDet finns inga inlägg att ta bort. Tryck på valfri tangent för att välja ett annat alternativ...");
+            ReadKey();
             return;
         }
 
@@ -118,17 +120,17 @@ internal class ManagePosts
             {
                 Posts.RemoveAt(index);
                 SavePosts();
-                Write("\nTryck på valfri tangent för att uppdatera befintliga inlägg...");
             }
             else
             {
                 Write("\nOgiltigt index! Tryck på valfri tangent för att börja om...");
+                ReadKey();
             }
         }
         else
         {
             Write("\nOgiltigt index! Tryck på valfri tangent för att börja om...");
-            return;
+            ReadKey();
         }
     }
 }

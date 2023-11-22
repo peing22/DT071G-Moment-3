@@ -57,13 +57,13 @@ while (true)
                 break;
             default:
                 Write("\nOgiltigt alternativ! Tryck på valfri tangent för att börja om...");
+                ReadKey();
                 break;
         }
     }
     else
     {
         Write("\nOgiltigt alternativ! Tryck på valfri tangent för att börja om...");
+        ReadKey();
     }
-
-    ReadKey();
 }
