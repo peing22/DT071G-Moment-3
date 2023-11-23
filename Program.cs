@@ -10,11 +10,11 @@ och ta bort gästboksinlägg. Lösningen är utvecklad av Petra Ingemarsson.
 using static System.Console;
 
 /*
-Skapar en ny instans av klassen "ManagePosts", tilldelar den till 
+Skapar en ny instans av klassen "GuestBook", tilldelar den till 
 en variabel och anropar en av klassmetoderna.
 */
-ManagePosts managePosts = new();
-managePosts.LoadPosts();
+GuestBook guestBook = new();
+guestBook.LoadPosts();
 
 /*
 Skapar en loop som håller gränssnittet igång tills programmet avslutas.
@@ -31,9 +31,9 @@ bort ett inlägg och (3) rensar konsolfönstret och avslutar programmet.
 while (true)
 {
     Clear();
-    WriteLine("--- VÄLKOMMEN TILL GÄSTBOKEN ---\n");
+    WriteLine("----- VÄLKOMMEN TILL GÄSTBOKEN -----\n");
 
-    managePosts.ShowPosts();
+    guestBook.ShowPosts();
 
     WriteLine("\n\nVad vill du göra?\n");
     WriteLine("1. Skapa ett nytt inlägg");
@@ -46,10 +46,10 @@ while (true)
         switch (choice)
         {
             case 1:
-                managePosts.AddPost();
+                guestBook.AddPost();
                 break;
             case 2:
-                managePosts.RemovePost();
+                guestBook.RemovePost();
                 break;
             case 3:
                 Clear();

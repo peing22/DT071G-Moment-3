@@ -6,17 +6,17 @@ using static System.Console;
 using System.Text.Json;
 
 // Skapar klass som hanterar gästboksinlägg.
-class ManagePosts
+class GuestBook
 {
     /* 
     Privat fält som kan lagra en lista med enskilda inlägg samt en 
     konstruktor som initierar en ny instans av listan.
     */
-    private List<IndividualPost> Posts;
+    private List<Post> Posts;
 
-    public ManagePosts()
+    public GuestBook()
     {
-        Posts = new List<IndividualPost>();
+        Posts = new List<Post>();
     }
 
     /*
@@ -28,7 +28,7 @@ class ManagePosts
         if (File.Exists("guestbook.json"))
         {
             string json = File.ReadAllText("guestbook.json");
-            Posts = JsonSerializer.Deserialize<List<IndividualPost>>(json)!;
+            Posts = JsonSerializer.Deserialize<List<Post>>(json)!;
         }
     }
 
@@ -82,7 +82,7 @@ class ManagePosts
             return;
         }
 
-        Posts.Add(new IndividualPost { Author = author, Content = content });
+        Posts.Add(new Post { Author = author, Content = content });
         SavePosts();
     }
 

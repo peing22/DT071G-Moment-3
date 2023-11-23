@@ -3,7 +3,7 @@ Skapar klass som representerar information om enskilda inlägg. Varje inlägg ha
 automatiska egenskaper (Author och Content) av typen string, för vilka värden 
 krävs vid tilldelning (set). Det är också möjligt att returnera värden (get).
 */
-class IndividualPost
+class Post
 {
     public required string Author { get; set; }
     public required string Content { get; set; }
