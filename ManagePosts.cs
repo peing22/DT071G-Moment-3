@@ -63,7 +63,7 @@ class ManagePosts
     public void AddPost()
     {
         Write("\nAnge ditt namn: ");
-        string author = ReadLine()!;
+        string? author = ReadLine();
 
         if (string.IsNullOrWhiteSpace(author))
         {
@@ -73,7 +73,7 @@ class ManagePosts
         }
 
         Write("Skriv ditt inlägg: ");
-        string content = ReadLine()!;
+        string? content = ReadLine();
 
         if (string.IsNullOrWhiteSpace(content))
         {
